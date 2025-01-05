@@ -187,39 +187,65 @@ nine.addEventListener('click', () => {
         display.textContent = selected;
     }
 });
+
+// OPERATIONS
 let plus = document.querySelector('#plus');
 plus.addEventListener('click', () => {
+    if (operation === '') {
+        operation = '+';
+        selectedOperator.textContent = '+';
+    } else if (operation !== '') {
     operate(previous, operation, selected);
     display.textContent = result;
     operation = '+';
     selectedOperator.textContent = '+';
+    }
 });
 let minus = document.querySelector('#minus');
 minus.addEventListener('click', () => {
+    if (operation === '') {
+        operation = '-';
+        selectedOperator.textContent = '-';
+    } else if (operation !== '') {
     operate(previous, operation, selected);
     display.textContent = result;
     operation = '-';
     selectedOperator.textContent = '-';
+    }
 });
 let times = document.querySelector('#times');
 times.addEventListener('click', () => {
+    if (operation === '') {
+        operation = '*';
+        selectedOperator.textContent = '*';
+    } else if (operation !== '') {
     operate(previous, operation, selected);
     display.textContent = result;
     operation = '*';
     selectedOperator.textContent = '*';
+    }
 });
 let by = document.querySelector('#by');
 by.addEventListener('click', () => {
+    if (operation === '') {
+        operation = '/';
+        selectedOperator.textContent = '/';
+    } else if (operation !== '') {
     operate(previous, operation, selected);
     display.textContent = result;
     operation = '/';
     selectedOperator.textContent = '/';
+    }
 });
+
+// CLEAR OPERATION
 let clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
-    display.textContent = '0';
+    display.textContent = '';
     previous = 0;
     selected = 0;
+    operation = '';
+    selectedOperator.textContent = '';
 });
 
 // OPERATION FUNCTIONS
