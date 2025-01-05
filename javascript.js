@@ -4,6 +4,7 @@ let result = 0;
 let selected = 0;
 let previous = 0;
 let operation = '';
+let selectedOperator = document.querySelector('#selectedOperator');
 
 // BUTTON QUERY SELECTORS AND SHOW ON DISPLAY
 let zero = document.querySelector('#zero');
@@ -188,23 +189,31 @@ nine.addEventListener('click', () => {
 });
 let plus = document.querySelector('#plus');
 plus.addEventListener('click', () => {
-    display.textContent = '+';
+    operate(previous, operation, selected);
+    display.textContent = result;
     operation = '+';
+    selectedOperator.textContent = '+';
 });
 let minus = document.querySelector('#minus');
 minus.addEventListener('click', () => {
-    display.textContent = '-';
+    operate(previous, operation, selected);
+    display.textContent = result;
     operation = '-';
+    selectedOperator.textContent = '-';
 });
 let times = document.querySelector('#times');
 times.addEventListener('click', () => {
-    display.textContent = '*';
+    operate(previous, operation, selected);
+    display.textContent = result;
     operation = '*';
+    selectedOperator.textContent = '*';
 });
 let by = document.querySelector('#by');
 by.addEventListener('click', () => {
-    display.textContent = '/';
+    operate(previous, operation, selected);
+    display.textContent = result;
     operation = '/';
+    selectedOperator.textContent = '/';
 });
 let clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {

@@ -6,7 +6,8 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        #display {
+        #display,
+        #selectedOperator {
             border: 1px black solid;
             width: 200px;
             height: 1.5em;
@@ -21,10 +22,16 @@
             justify-content: center;
             margin-top: 200px;
         }
+        #selectedOperator {
+            opacity: 40%;
+            width: 25px;
+            margin-left: 175px;
+        }
     </style>
 </head>
 <body>
     <div id="container">
+        <div id="selectedOperator"></div>
         <div id="display"></div>
         <br> 
         <button id="zero"> 0 </button>
