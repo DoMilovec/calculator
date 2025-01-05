@@ -8,89 +8,182 @@ let operation = '';
 // BUTTON QUERY SELECTORS AND SHOW ON DISPLAY
 let zero = document.querySelector('#zero');
 zero.addEventListener('click', () => {
-    display.textContent = '0';
-    selected = 0;
-    previous = 0;
+    if (operation === '') {
+        if (previous === null) {
+            previous = 0;
+        } else {
+            previous = previous * 10 + 0;
+        }
+        display.textContent = previous;
+    } else {
+        if (selected === null) {
+            selected = 0;
+        } else {
+            selected = selected * 10 + 0;
+        }
+        display.textContent = selected;
+    }
 });
 let one = document.querySelector('#one');
 one.addEventListener('click', () => {
-    display.textContent = '1';
     if (operation === '') {
-        previous = 1;
+        if (previous === null) {
+            previous = 1;
+        } else {
+            previous = previous * 10 + 1;
+        }
+        display.textContent = previous;
     } else {
-        selected = 1;
+        if (selected === null) {
+            selected = 1;
+        } else {
+            selected = selected * 10 + 1;
+        }
+        display.textContent = selected;
     }
 });
 let two = document.querySelector('#two');
 two.addEventListener('click', () => {
-    display.textContent = '2';
     if (operation === '') {
-        previous = 2;
+        if (previous === null) {
+            previous = 2;
+        } else {
+            previous = previous * 10 + 2;
+        }
+        display.textContent = previous;
     } else {
-        selected = 2;
+        if (selected === null) {
+            selected = 2;
+        } else {
+            selected = selected * 10 + 2;
+        }
+        display.textContent = selected;
     }
 });
 let three = document.querySelector('#three');
 three.addEventListener('click', () => {
-    display.textContent = '3';
     if (operation === '') {
-        previous = 3;
+        if (previous === null) {
+            previous = 3;
+        } else {
+            previous = previous * 10 + 3;
+        }
+        display.textContent = previous;
     } else {
-        selected = 3;
+        if (selected === null) {
+            selected = 3;
+        } else {
+            selected = selected * 10 + 3;
+        }
+        display.textContent = selected;
     }
 });
 let four = document.querySelector('#four');
 four.addEventListener('click', () => {
-    display.textContent = '4';
     if (operation === '') {
-        previous = 4;
+        if (previous === null) {
+            previous = 4;
+        } else {
+            previous = previous * 10 + 4;
+        }
+        display.textContent = previous;
     } else {
-        selected = 4;
+        if (selected === null) {
+            selected = 4;
+        } else {
+            selected = selected * 10 + 4;
+        }
+        display.textContent = selected;
     }
 });
 let five = document.querySelector('#five');
 five.addEventListener('click', () => {
-    display.textContent = '5';
     if (operation === '') {
-        previous = 5;
+        if (previous === null) {
+            previous = 5;
+        } else {
+            previous = previous * 10 + 5;
+        }
+        display.textContent = previous;
     } else {
-        selected = 5;
+        if (selected === null) {
+            selected = 5;
+        } else {
+            selected = selected * 10 + 5;
+        }
+        display.textContent = selected;
     }
 });
 let six = document.querySelector('#six');
 six.addEventListener('click', () => {
-    display.textContent = '6';
     if (operation === '') {
-        previous = 6;
+        if (previous === null) {
+            previous = 6;
+        } else {
+            previous = previous * 10 + 6;
+        }
+        display.textContent = previous;
     } else {
-        selected = 6;
+        if (selected === null) {
+            selected = 6;
+        } else {
+            selected = selected * 10 + 6;
+        }
+        display.textContent = selected;
     }
 });
 let seven = document.querySelector('#seven');
 seven.addEventListener('click', () => {
-    display.textContent = '7';
     if (operation === '') {
-        previous = 7;
+        if (previous === null) {
+            previous = 7;
+        } else {
+            previous = previous * 10 + 7;
+        }
+        display.textContent = previous;
     } else {
-        selected = 7;
+        if (selected === null) {
+            selected = 7;
+        } else {
+            selected = selected * 10 + 7;
+        }
+        display.textContent = selected;
     }
 });
 let eight = document.querySelector('#eight');
 eight.addEventListener('click', () => {
-    display.textContent = '8';
     if (operation === '') {
-        previous = 8;
+        if (previous === null) {
+            previous = 8;
+        } else {
+            previous = previous * 10 + 8;
+        }
+        display.textContent = previous;
     } else {
-        selected = 8;
+        if (selected === null) {
+            selected = 8;
+        } else {
+            selected = selected * 10 + 8;
+        }
+        display.textContent = selected;
     }
 });
 let nine = document.querySelector('#nine');
 nine.addEventListener('click', () => {
-    display.textContent = '9';
     if (operation === '') {
-        previous = 9;
+        if (previous === null) {
+            previous = 9;
+        } else {
+            previous = previous * 10 + 9;
+        }
+        display.textContent = previous;
     } else {
-        selected = 9;
+        if (selected === null) {
+            selected = 9;
+        } else {
+            selected = selected * 10 + 9;
+        }
+        display.textContent = selected;
     }
 });
 let plus = document.querySelector('#plus');
@@ -115,7 +208,9 @@ by.addEventListener('click', () => {
 });
 let clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
-    display.textContent = ' ';
+    display.textContent = '0';
+    previous = 0;
+    selected = 0;
 });
 
 // OPERATION FUNCTIONS
@@ -149,6 +244,7 @@ let operate = function (a, operator, b) {
     }
     display.textContent = result;
     previous = result;
+    selected = 0;
 }
 
 // EQUALS OPERATOR
