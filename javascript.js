@@ -195,10 +195,10 @@ plus.addEventListener('click', () => {
         operation = '+';
         selectedOperator.textContent = '+';
     } else if (operation !== '') {
-    operate(previous, operation, selected);
-    display.textContent = result;
-    operation = '+';
-    selectedOperator.textContent = '+';
+        selectedOperator.textContent = `${previous}${operation}${selected}`;
+        operate(previous, operation, selected);
+        display.textContent = result;
+        operation = '+';    
     }
 });
 let minus = document.querySelector('#minus');
@@ -207,10 +207,10 @@ minus.addEventListener('click', () => {
         operation = '-';
         selectedOperator.textContent = '-';
     } else if (operation !== '') {
-    operate(previous, operation, selected);
-    display.textContent = result;
-    operation = '-';
-    selectedOperator.textContent = '-';
+        selectedOperator.textContent = `${previous}${operation}${selected}`;
+        operate(previous, operation, selected);
+        display.textContent = result;
+        operation = '-';
     }
 });
 let times = document.querySelector('#times');
@@ -219,11 +219,12 @@ times.addEventListener('click', () => {
         operation = '*';
         selectedOperator.textContent = '*';
     } else if (operation !== '') {
-    operate(previous, operation, selected);
-    display.textContent = result;
-    operation = '*';
-    selectedOperator.textContent = '*';
-    }
+        selectedOperator.textContent = `${previous}${operation}${selected}`;
+        operate(previous, operation, selected);
+        display.textContent = result;
+        operation = '*';
+    } 
+
 });
 let by = document.querySelector('#by');
 by.addEventListener('click', () => {
@@ -231,10 +232,10 @@ by.addEventListener('click', () => {
         operation = '/';
         selectedOperator.textContent = '/';
     } else if (operation !== '') {
-    operate(previous, operation, selected);
-    display.textContent = result;
-    operation = '/';
-    selectedOperator.textContent = '/';
+        selectedOperator.textContent = `${previous}${operation}${selected}`;
+        operate(previous, operation, selected);
+        display.textContent = result;
+        operation = '/';
     }
 });
 
@@ -285,5 +286,6 @@ let operate = function (a, operator, b) {
 // EQUALS OPERATOR
 let equals = document.querySelector('#equals');
 equals.addEventListener('click', (e) => {
+    selectedOperator.textContent = `${previous}${operation}${selected}`;
     operate(previous, operation, selected);
 }); 
