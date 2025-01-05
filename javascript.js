@@ -193,49 +193,52 @@ let plus = document.querySelector('#plus');
 plus.addEventListener('click', () => {
     if (operation === '') {
         operation = '+';
-        selectedOperator.textContent = '+';
+        display.textContent += ' + ';
     } else if (operation !== '') {
         selectedOperator.textContent = `${previous}${operation}${selected}`;
         operate(previous, operation, selected);
         display.textContent = result;
-        operation = '+';    
+        operation = '+'; 
+        display.textContent += ' + ';
     }
 });
 let minus = document.querySelector('#minus');
 minus.addEventListener('click', () => {
     if (operation === '') {
         operation = '-';
-        selectedOperator.textContent = '-';
+        display.textContent += ' - ';
     } else if (operation !== '') {
         selectedOperator.textContent = `${previous}${operation}${selected}`;
         operate(previous, operation, selected);
         display.textContent = result;
         operation = '-';
+        display.textContent += ' - ';
     }
 });
 let times = document.querySelector('#times');
 times.addEventListener('click', () => {
     if (operation === '') {
         operation = '*';
-        selectedOperator.textContent = '*';
+        display.textContent += ' * ';
     } else if (operation !== '') {
         selectedOperator.textContent = `${previous}${operation}${selected}`;
         operate(previous, operation, selected);
         display.textContent = result;
         operation = '*';
+        display.textContent += ' * ';
     } 
-
 });
 let by = document.querySelector('#by');
 by.addEventListener('click', () => {
     if (operation === '') {
         operation = '/';
-        selectedOperator.textContent = '/';
+        display.textContent += ' / ';
     } else if (operation !== '') {
         selectedOperator.textContent = `${previous}${operation}${selected}`;
         operate(previous, operation, selected);
         display.textContent = result;
         operation = '/';
+        display.textContent += ' / ';
     }
 });
 
