@@ -220,25 +220,29 @@ times.addEventListener('click', () => {
     if (operation === '') {
         operation = '*';
         display.textContent += ' * ';
-    } else if (operation !== '') {
+    } else if (operation === '+' || operation === '-' || operation === '/') {
         selectedOperator.textContent = `${previous}${operation}${selected}`;
         operate(previous, operation, selected);
         display.textContent = result;
         operation = '*';
         display.textContent += ' * ';
-    } 
+    } else if (operation === '*') {
+        selectedOperator.textContent = `${previous}${operation}${selected}`;
+    }
 });
 let by = document.querySelector('#by');
 by.addEventListener('click', () => {
     if (operation === '') {
         operation = '/';
         display.textContent += ' / ';
-    } else if (operation !== '') {
+    } else if (operation === '+' || operation === '-' || operation === '*') {
         selectedOperator.textContent = `${previous}${operation}${selected}`;
         operate(previous, operation, selected);
         display.textContent = result;
         operation = '/';
         display.textContent += ' / ';
+    } else if (operation === '/') {
+        selectedOperator.textContent = `${previous}${operation}${selected}`;
     }
 });
 
@@ -289,6 +293,14 @@ let operate = function (a, operator, b) {
 // EQUALS OPERATOR
 let equals = document.querySelector('#equals');
 equals.addEventListener('click', (e) => {
+    if (operation === '') {
+        display.textContent = '';
+        selectedOperator.textContent = '';
+        previous = 0;
+        selected = 0;
+    } else {
     selectedOperator.textContent = `${previous}${operation}${selected}`;
     operate(previous, operation, selected);
+    operation = '';
+    }
 }); 
