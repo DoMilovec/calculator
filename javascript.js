@@ -227,7 +227,7 @@ times.addEventListener('click', () => {
         operation = '*';
         display.textContent += ' * ';
     } else if (operation === '*') {
-        selectedOperator.textContent = `${previous}${operation}${selected}`;
+        // do nothing
     }
 });
 let by = document.querySelector('#by');
@@ -242,7 +242,7 @@ by.addEventListener('click', () => {
         operation = '/';
         display.textContent += ' / ';
     } else if (operation === '/') {
-        selectedOperator.textContent = `${previous}${operation}${selected}`;
+        // do nothing
     }
 });
 
@@ -298,6 +298,12 @@ equals.addEventListener('click', (e) => {
         selectedOperator.textContent = '';
         previous = 0;
         selected = 0;
+    } else if (operation === '/' && selected === 0) {
+        display.textContent = 'Cant divide with 0!';
+        selectedOperator.textContent = 'Error';
+        previous = 0;
+        selected = 0;
+        operation = ''
     } else {
     selectedOperator.textContent = `${previous}${operation}${selected}`;
     operate(previous, operation, selected);
