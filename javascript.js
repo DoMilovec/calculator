@@ -194,12 +194,17 @@ plus.addEventListener('click', () => {
     if (operation === '') {
         operation = '+';
         display.textContent += ' + ';
-    } else if (operation !== '') {
-        selectedOperator.textContent = `${previous}${operation}${selected}`;
+    } else if (operation === '-' || operation === '*' || operation === '/') {
+        selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
         operate(previous, operation, selected);
-        display.textContent = result;
+        display.textContent = parseFloat(result.toFixed(7));
         operation = '+'; 
         display.textContent += ' + ';
+    } else if (operation === '+') {
+        selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
+        result = previous + selected;
+        display.textContent = parseFloat(result.toFixed(7));
+        previous = result;
     }
 });
 let minus = document.querySelector('#minus');
@@ -207,12 +212,17 @@ minus.addEventListener('click', () => {
     if (operation === '') {
         operation = '-';
         display.textContent += ' - ';
-    } else if (operation !== '') {
-        selectedOperator.textContent = `${previous}${operation}${selected}`;
+    } else if (operation === '+' || operation === '*' || operation === '/') {
+        selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
         operate(previous, operation, selected);
-        display.textContent = result;
+        display.textContent = parseFloat(result.toFixed(7));
         operation = '-';
         display.textContent += ' - ';
+    } else if (operation === '-') {
+        selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
+        result = previous - selected;
+        display.textContent = parseFloat(result.toFixed(7));
+        previous = result;
     }
 });
 let times = document.querySelector('#times');
@@ -221,13 +231,16 @@ times.addEventListener('click', () => {
         operation = '*';
         display.textContent += ' * ';
     } else if (operation === '+' || operation === '-' || operation === '/') {
-        selectedOperator.textContent = `${previous}${operation}${selected}`;
+        selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
         operate(previous, operation, selected);
-        display.textContent = result;
+        display.textContent = parseFloat(result.toFixed(7));
         operation = '*';
         display.textContent += ' * ';
     } else if (operation === '*') {
-        // do nothing
+        selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
+        result = selected * previous;
+        display.textContent = parseFloat(result.toFixed(7));
+        previous = result;
     }
 });
 let by = document.querySelector('#by');
@@ -236,20 +249,23 @@ by.addEventListener('click', () => {
         operation = '/';
         display.textContent += ' / ';
     } else if (operation === '+' || operation === '-' || operation === '*') {
-        selectedOperator.textContent = `${previous}${operation}${selected}`;
+        selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
         operate(previous, operation, selected);
-        display.textContent = result;
+        display.textContent = parseFloat(result.toFixed(7));
         operation = '/';
         display.textContent += ' / ';
     } else if (operation === '/') {
-        // do nothing
+        selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
+        result = previous / selected;
+        display.textContent = parseFloat(result.toFixed(7));
+        previous = result;
     }
 });
 
 // CLEAR OPERATION
 let clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
-    display.textContent = '';
+    display.textContent = '0';
     previous = 0;
     selected = 0;
     operation = '';
@@ -285,7 +301,7 @@ let operate = function (a, operator, b) {
     if (operator === '/') {
         divide(a, b);
     }
-    display.textContent = result;
+    display.textContent = parseFloat(result.toFixed(7));
     previous = result;
     selected = 0;
 }
@@ -294,10 +310,8 @@ let operate = function (a, operator, b) {
 let equals = document.querySelector('#equals');
 equals.addEventListener('click', (e) => {
     if (operation === '') {
-        display.textContent = '';
+        display.textContent = previous;
         selectedOperator.textContent = '';
-        previous = 0;
-        selected = 0;
     } else if (operation === '/' && selected === 0) {
         display.textContent = 'Cant divide with 0!';
         selectedOperator.textContent = 'Error';
@@ -305,8 +319,38 @@ equals.addEventListener('click', (e) => {
         selected = 0;
         operation = ''
     } else {
-    selectedOperator.textContent = `${previous}${operation}${selected}`;
+    selectedOperator.textContent = `${parseFloat(previous.toFixed(7))}${operation}${selected}`;
     operate(previous, operation, selected);
     operation = '';
     }
-}); 
+});
+
+// BACKSPACE
+let backspace = document.querySelector('#backspace');
+backspace.addEventListener('click', (e) => {
+    if (operation === '') {
+        let strPrev = previous.toString();
+        if (strPrev.length > 1) {
+        strPrev = strPrev.slice(0, -1);
+        let numPrev = parseFloat(strPrev);
+        display.textContent = numPrev;
+        previous = numPrev;
+        } else {
+            numPrev = 0;
+            display.textContent = numPrev;
+            previous = numPrev;
+        }
+    } else if (operation !== '') {
+        let strSelect = selected.toString();
+        if (strSelect.length > 1) {
+        strSelect = strSelect.slice(0, -1);
+        let numSelect = parseFloat(strSelect);
+        display.textContent = numSelect;
+        selected = numSelect;
+        } else {
+            numSelect = 0;
+            display.textContent = numSelect;
+            selected = numSelect;
+        }
+    } 
+});
