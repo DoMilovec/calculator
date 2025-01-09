@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: Orbitron;
 }
 #display,
 #selectedOperator {
@@ -39,7 +40,7 @@ button#clear {
 #backspace,
 #clear {
     align-items: center;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 
@@ -55,7 +56,8 @@ button {
     justify-content: flex-end;
     background-color: #000;
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
     letter-spacing: 1px;
     border: 0.5px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 8px;
@@ -92,7 +94,7 @@ button {
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.13));
     z-index: -1;
     border-radius: 15px;
     box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
@@ -153,20 +155,97 @@ button {
   }
 
 
-
+/* ORANGE BUTTONS */
   button#by,
   button#times,
   button#minus,
-  button#plus,
-  button#equals {
+  button#plus {
     /* Add gradient shading to each side */
-    background-image: linear-gradient(to right, rgb(255, 166, 0), rgb(255, 166, 0)),
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0)),
       linear-gradient(to bottom, rgb(255, 166, 0), rgb(255, 166, 0));
     background-position: bottom right, bottom right;
     background-size: 100% 100%, 100% 100%;
     background-repeat: no-repeat;
     box-shadow: inset -4px -10px 0px rgb(255, 166, 0),
       inset -4px -8px 0px rgb(255, 166, 0),
-      0px 2px 1px rgb(255, 166, 0),
-      0px 2px 1px rgb(255, 166, 0);
+      0px 0px 4px rgb(255, 166, 0),
+      0px 0px 4px rgb(255, 166, 0);
   }
+
+  button#by::after,
+  button#times::after,
+  button#minus::after,
+  button#plus::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to bottom, rgb(255, 166, 0), rgb(255, 115, 0));
+    z-index: -1;
+    border-radius: 15px;
+    box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+      inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+    transition: all .1s ease-in-out 0s;
+  }
+
+  /* BLUE BUTTONS*/
+  button#backspace,
+  button#clear {
+    /* Add gradient shading to each side */
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0)),
+      linear-gradient(to bottom, rgb(0, 81, 255), rgb(0, 81, 255));
+    background-position: bottom right, bottom right;
+    background-size: 100% 100%, 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: inset -4px -10px 0px rgb(0, 81, 255),
+      inset -4px -8px 0px rgb(0, 81, 255),
+      0px 0px 4px rgb(0, 81, 255),
+      0px 0px 4px rgb(0, 81, 255);
+  }
+
+  button#backspace::after,
+  button#clear::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to bottom, rgb(0, 81, 255), rgb(47, 0, 255));
+    z-index: -1;
+    border-radius: 15px;
+    box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+      inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+    transition: all .1s ease-in-out 0s;
+  }
+
+    /* RED BUTTONS*/
+    button#equals {
+      /* Add gradient shading to each side */
+      background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0)),
+        linear-gradient(to bottom, rgb(241, 47, 73), rgb(241, 47, 73));
+      background-position: bottom right, bottom right;
+      background-size: 100% 100%, 100% 100%;
+      background-repeat: no-repeat;
+      box-shadow: inset -4px -10px 0px rgb(241, 47, 73),
+        inset -4px -8px 0px rgb(241, 47, 73),
+        0px 0px 4px rgb(241, 47, 73),
+        0px 0px 4px rgb(241, 47, 73);
+    }
+  
+    button#equals::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: linear-gradient(to bottom, rgb(241, 47, 73), rgb(248, 0, 33));
+      z-index: -1;
+      border-radius: 15px;
+      box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+        inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+      transition: all .1s ease-in-out 0s;
+    }
