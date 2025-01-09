@@ -3,57 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        #display,
-        #selectedOperator {
-            border: 1px black solid;
-            width: 200px;
-            height: 1.5em;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 2px;
-            padding-right: 5px;
-        }
-        html {
-            display: flex;
-            justify-content: center;
-            margin-top: 200px;
-        }
-        #selectedOperator {
-            opacity: 40%;
-            width: 100px;
-            margin-left: 100px;
-        }
-    </style>
 </head>
 <body>
     <div id="container">
         <div id="selectedOperator"></div>
         <div id="display"></div>
-        <br> 
-        <button id="zero"> 0 </button>
-        <button id="one"> 1 </button>
-        <button id="two"> 2 </button>
-        <button id="three"> 3 </button>
-        <button id="four"> 4 </button>
-        <button id="five"> 5 </button>
-        <button id="six"> 6 </button>
-        <button id="seven"> 7 </button>
-        <button id="eight"> 8 </button>
-        <button id="nine"> 9 </button>
-        <br> <br>
-        <button id="plus"> + </button>
-        <button id="minus"> - </button>
-        <button id="times"> * </button>
-        <button id="by"> / </button>
-        <button id="equals"> = </button>
-        <button id="dot"> . </button>
-        <button id="backspace"> DEL </button>
-        <button id="clear"> AC </button>
-
+        <div id="main">
+            <button id="backspace"> DEL </button>
+            <button id="clear"> CLEAR </button>
+            <button id="by"> / </button>
+            <button id="seven"> 7 </button>
+            <button id="eight"> 8 </button>
+            <button id="nine"> 9 </button>
+            <button id="times"> * </button>
+            <button id="four"> 4 </button>
+            <button id="five"> 5 </button>
+            <button id="six"> 6 </button>
+            <button id="minus"> - </button>
+            <button id="one"> 1 </button>
+            <button id="two"> 2 </button>
+            <button id="three"> 3 </button>
+            <button id="plus"> + </button>
+            <button id="zero"> 0 </button>
+            <button id="dot"> . </button>
+            <button id="equals"> = </button>
+        </div>
     </div>
     <script src="javascript.js"></script>
 </body>
