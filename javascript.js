@@ -386,6 +386,7 @@ equals.addEventListener('click', (e) => {
     selectedOperator.textContent = `${parseFloat(previous.toFixed(7))} ${operation} ${selected}`;
     operate(previous, operation, selected);
     operation = '';
+    display.textContent = parseFloat(result.toFixed(7));
     }
 });
 
